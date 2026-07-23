@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bupo! — La comunidad de tu mascota</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#132018;
+    --ink-soft:#4B5A52;
+    --green:#22C55E;
+    --green-deep:#15803D;
+    --green-pale:#EAFBF1;
+    --coral:#FF7A59;
+    --white:#FFFFFF;
+    --line:#DCEEE2;
+    --mono:'IBM Plex Mono', monospace;
+    --display:'Fredoka', sans-serif;
+    --body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--body); color:var(--ink); background:var(--white); -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+
+  /* NAV */
+  nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav-container{max-width:1160px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:700; font-size:1.25rem;}
+  .logo-mark{width:32px; height:32px; border-radius:10px; background:var(--green); display:flex; align-items:center; justify-content:center; font-size:1.05rem;}
+  .nav-links{display:flex; align-items:center; gap:28px;}
+  .nav-links a{font-size:.92rem; color:var(--ink-soft); font-weight:500; transition:color .15s ease;}
+  .nav-links a:hover{color:var(--green-deep);}
+  .nav-cta{background:var(--ink); color:var(--white) !important; padding:9px 18px; border-radius:100px; font-size:.85rem !important; font-weight:600 !important;}
+  .nav-cta:hover{background:var(--green-deep) !important;}
+
+  /* HERO */
+  .hero{max-width:1160px; margin:0 auto; padding:76px 24px 40px; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:.75rem; letter-spacing:.04em; color:var(--green-deep); background:var(--green-pale); border:1px solid var(--line); padding:6px 12px; border-radius:100px; margin-bottom:22px;}
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--green);}
+  h1{font-family:var(--display); font-weight:700; font-size:clamp(2.3rem,4.4vw,3.4rem); line-height:1.08; letter-spacing:-0.01em; margin-bottom:20px;}
+  h1 .accent{color:var(--green-deep);}
+  .subtitle{font-size:1.06rem; color:var(--ink-soft); line-height:1.6; max-width:480px; margin-bottom:32px;}
+  .hero-buttons{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .btn-primary{display:inline-flex; align-items:center; gap:10px; background:var(--ink); color:var(--white); padding:14px 24px; border-radius:100px; font-weight:600; font-size:.95rem; transition:transform .15s ease, background .15s ease;}
+  .btn-primary:hover{background:var(--green-deep); transform:translateY(-2px);}
+  .btn-ghost{font-size:.9rem; font-weight:500; color:var(--ink-soft); border-bottom:1px solid var(--line); padding-bottom:2px;}
+  .btn-ghost:hover{color:var(--green-deep); border-color:var(--green);}
+
+  /* HERO card-stack mockup */
+  .stack{position:relative; height:420px; display:flex; align-items:center; justify-content:center;}
+  .pet-card{position:absolute; width:230px; background:var(--white); border:1px solid var(--line); border-radius:20px; padding:14px; box-shadow:0 20px 40px -20px rgba(19,32,24,.25);}
+  .pet-card.back{transform:rotate(-8deg) translateX(-70px); opacity:.55; z-index:1;}
+  .pet-card.mid{transform:rotate(6deg) translateX(60px); opacity:.75; z-index:2;}
+  .pet-card.front{transform:rotate(-2deg); z-index:3; transition:transform .3s ease;}
+  .pet-card.front:hover{transform:rotate(0deg) translateY(-6px);}
+  .pet-photo{height:150px; border-radius:14px; background:linear-gradient(135deg,var(--green-pale),var(--line)); display:flex; align-items:center; justify-content:center; font-size:2.4rem; margin-bottom:12px;}
+  .pet-card h4{font-family:var(--display); font-size:1.05rem; font-weight:600;}
+  .pet-card .meta{font-size:.75rem; color:var(--ink-soft); margin:3px 0 10px;}
+  .pet-tag{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono); font-size:.68rem; background:var(--green-pale); color:var(--green-deep); padding:3px 9px; border-radius:100px;}
+  .alert-chip{position:absolute; bottom:14px; left:14px; z-index:4; background:var(--ink); color:var(--white); font-family:var(--mono); font-size:.7rem; padding:7px 12px; border-radius:100px; display:flex; align-items:center; gap:7px; box-shadow:0 10px 24px -10px rgba(19,32,24,.5);}
+  .alert-chip .pulse{width:7px; height:7px; border-radius:50%; background:var(--coral); box-shadow:0 0 0 rgba(255,122,89,.5); animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,122,89,.5);}70%{box-shadow:0 0 0 8px rgba(255,122,89,0);}100%{box-shadow:0 0 0 0 rgba(255,122,89,0);}}
+
+  /* PILLARS */
+  .pillars{max-width:1160px; margin:0 auto; padding:100px 24px 60px;}
+  .section-head{max-width:600px; margin-bottom:52px;}
+  .kicker{font-family:var(--mono); font-size:.75rem; letter-spacing:.06em; color:var(--green-deep); text-transform:uppercase; display:block; margin-bottom:14px;}
+  .pillars h2, .services h2, .trust h2{font-family:var(--display); font-size:clamp(1.7rem,3vw,2.2rem); font-weight:700; line-height:1.15; margin-bottom:16px;}
+  .section-head p{color:var(--ink-soft); line-height:1.6; font-size:1.02rem;}
+  .pillar-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden;}
+  .pillar{background:var(--white); padding:30px 24px; transition:background .2s ease;}
+  .pillar:hover{background:var(--green-pale);}
+  .pillar .emoji{font-size:1.8rem; margin-bottom:14px;}
+  .pillar h3{font-size:1rem; font-weight:600; margin-bottom:8px;}
+  .pillar p{font-size:.85rem; color:var(--ink-soft); line-height:1.55;}
+
+  /* SERVICES SPLIT */
+  .services{max-width:1160px; margin:0 auto; padding:60px 24px 100px; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .services .kicker{color:var(--green-deep);}
+  .services p.lead{color:var(--ink-soft); line-height:1.6; margin-bottom:26px; max-width:460px;}
+  .service-list{list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:28px;}
+  .service-list li{display:flex; align-items:center; gap:12px; font-size:.94rem; font-weight:500;}
+  .service-list .ico{width:34px; height:34px; border-radius:10px; background:var(--green-pale); display:flex; align-items:center; justify-content:center; font-size:1rem;}
+  .service-panel{background:var(--green-pale); border:1px solid var(--line); border-radius:20px; padding:26px;}
+  .service-panel .row{display:flex; justify-content:space-between; align-items:center; background:var(--white); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:12px;}
+  .service-panel .row:last-child{margin-bottom:0;}
+  .service-panel .row h4{font-size:.92rem; font-weight:600;}
+  .service-panel .row span{font-size:.72rem; color:var(--ink-soft); font-family:var(--mono);}
+  .stars{color:var(--green-deep); font-size:.8rem;}
+
+  /* TRUST / DATA */
+  .trust{background:var(--ink); color:var(--white); padding:84px 24px;}
+  .trust-inner{max-width:1160px; margin:0 auto;}
+  .trust .kicker{color:var(--green);}
+  .trust-head{max-width:560px; margin-bottom:44px;}
+  .trust-head p{color:#B9C6BF; line-height:1.6; font-size:.98rem;}
+  .trust-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,.12); border-radius:16px; overflow:hidden; margin-bottom:56px;}
+  .trust-card{background:#182720; padding:24px;}
+  .trust-card .emoji{font-size:1.4rem; margin-bottom:10px;}
+  .trust-card h4{font-size:.9rem; font-weight:600; margin-bottom:6px;}
+  .trust-card p{font-size:.78rem; color:#AEBDB5; line-height:1.5;}
+
+  .legal-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.12); border-radius:16px; overflow:hidden;}
+  .card{background:#182720; padding:26px; display:flex; flex-direction:column; gap:10px;}
+  .card h3{font-size:1rem; font-weight:600;}
+  .card p{font-size:.85rem; color:#AEBDB5; line-height:1.55; flex-grow:1;}
+  .btn-secondary{display:inline-flex; align-items:center; gap:6px; font-size:.85rem; font-weight:600; color:var(--green);}
+  .btn-secondary:hover{color:var(--white);}
+
+  footer{padding:26px 24px; text-align:center; font-size:.8rem; color:var(--ink-soft); border-top:1px solid var(--line);}
+
+  @media (max-width:880px){
+    .hero{grid-template-columns:1fr; padding-top:48px;}
+    .nav-links{display:none;}
+    .pillar-grid{grid-template-columns:1fr 1fr;}
+    .services{grid-template-columns:1fr;}
+    .trust-grid{grid-template-columns:1fr 1fr;}
+    .legal-grid{grid-template-columns:1fr;}
+    .stack{height:340px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <span class="logo"><span class="logo-mark">🐾</span>Bupo!</span>
+    <div class="nav-links">
+      <a href="support.html">Soporte</a>
+      <a href="privacy.html">Privacidad</a>
+      <a href="terms.html">Términos</a>
+      <a href="#" class="nav-cta">Sumate ahora</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <span class="eyebrow"><span class="dot"></span>La comunidad de mascotas y dueños</span>
+    <h1>Todo lo que tu mascota necesita, <span class="accent">en un solo lugar</span>.</h1>
+    <p class="subtitle">Encontrá una pareja compatible, publicá alertas si se pierde y descubrí servicios de confianza cerca tuyo. Bupo! conecta a la comunidad que ama a los animales tanto como vos.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">🐾 Crear el perfil de mi mascota</a>
+      <a href="#pilares" class="btn-ghost">Ver qué podés hacer</a>
+    </div>
+  </div>
+
+  <div class="stack">
+    <div class="pet-card back">
+      <div class="pet-photo">🐕</div>
+      <h4>Rocco</h4>
+      <p class="meta">Labrador · 2 años</p>
+      <span class="pet-tag">Busca pareja</span>
+    </div>
+    <div class="pet-card mid">
+      <div class="pet-photo">🐈</div>
+      <h4>Mishi</h4>
+      <p class="meta">Siamés · 1 año</p>
+      <span class="pet-tag">Busca pareja</span>
+    </div>
+    <div class="pet-card front">
+      <div class="pet-photo">🐶</div>
+      <h4>Luna</h4>
+      <p class="meta">Border Collie · 3 años</p>
+      <span class="pet-tag">Busca pareja</span>
+    </div>
+    <span class="alert-chip"><span class="pulse"></span>Alerta cerca tuyo: mascota perdida</span>
+  </div>
+</header>
+
+<section class="pillars" id="pilares">
+  <div class="section-head">
+    <span class="kicker">Qué podés hacer</span>
+    <h2>Cuatro formas de cuidar a tu mascota</h2>
+    <p>Desde encontrarle pareja hasta ayudarla a volver a casa, Bupo! reúne las herramientas que antes tenías que buscar por separado.</p>
+  </div>
+  <div class="pillar-grid">
+    <div class="pillar">
+      <div class="emoji">🐾</div>
+      <h3>Parejas compatibles</h3>
+      <p>Creá el perfil de tu mascota y descubrí otras compatibles para cruzas responsables.</p>
+    </div>
+    <div class="pillar">
+      <div class="emoji">🚨</div>
+      <h3>Alertas de pérdida</h3>
+      <p>Publicá una alerta y sumá a toda la comunidad a la búsqueda en tu zona.</p>
+    </div>
+    <div class="pillar">
+      <div class="emoji">🩺</div>
+      <h3>Servicios de confianza</h3>
+      <p>Encontrá veterinarios, paseadores, cuidadores, adiestradores y peluquería.</p>
+    </div>
+    <div class="pillar">
+      <div class="emoji">🔎</div>
+      <h3>Un solo explorador</h3>
+      <p>Descubrí mascotas, servicios y publicaciones de la comunidad sin salir de la app.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div>
+    <span class="kicker">Para profesionales</span>
+    <h2>¿Trabajás con mascotas? Ofrecé tus servicios</h2>
+    <p class="lead">Creá tu perfil de servicio, publicá lo que ofrecés y llegá a dueños que están buscando ayuda para el cuidado de sus animales.</p>
+    <ul class="service-list">
+      <li><span class="ico">🩺</span>Veterinarios</li>
+      <li><span class="ico">🦮</span>Paseadores y cuidadores</li>
+      <li><span class="ico">🎓</span>Adiestradores</li>
+      <li><span class="ico">✂️</span>Peluquería y estética</li>
+    </ul>
+    <a href="#" class="btn-primary">Publicar mi servicio</a>
+  </div>
+  <div class="service-panel">
+    <div class="row">
+      <div>
+        <h4>Paseos en el parque</h4>
+        <span>Palermo, CABA</span>
+      </div>
+      <span class="stars">★★★★★</span>
+    </div>
+    <div class="row">
+      <div>
+        <h4>Veterinaria Norte</h4>
+        <span>Belgrano, CABA</span>
+      </div>
+      <span class="stars">★★★★★</span>
+    </div>
+    <div class="row">
+      <div>
+        <h4>Peluquería canina Lola</h4>
+        <span>Villa Urquiza, CABA</span>
+      </div>
+      <span class="stars">★★★★☆</span>
+    </div>
+  </div>
+</section>
+
+<section class="trust" id="support">
+  <div class="trust-inner">
+    <div class="trust-head">
+      <span class="kicker">Tus datos, cuidados</span>
+      <h2>Solo pedimos lo necesario</h2>
+      <p>Usamos tu información únicamente para que Bupo! funcione: crear perfiles, mostrar contenido cerca tuyo y conectar con la comunidad. Nunca la vendemos.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="emoji">👤</div>
+        <h4>Cuenta</h4>
+        <p>Nombre, email y verificación para armar tu perfil.</p>
+      </div>
+      <div class="trust-card">
+        <div class="emoji">📍</div>
+        <h4>Ubicación</h4>
+        <p>Para mostrarte mascotas, alertas y servicios cerca tuyo.</p>
+      </div>
+      <div class="trust-card">
+        <div class="emoji">🐕</div>
+        <h4>Mascotas</h4>
+        <p>Especie, raza y fotos para armar cada perfil.</p>
+      </div>
+      <div class="trust-card">
+        <div class="emoji">💼</div>
+        <h4>Servicios</h4>
+        <p>Lo que publicás como profesional y las reseñas que recibís.</p>
+      </div>
+    </div>
+    <div class="legal-grid">
+      <div class="card">
+        <h3>Soporte y ayuda</h3>
+        <p>¿Necesitás asistencia con tu cuenta o alguna publicación?</p>
+        <a href="support.html" class="btn-secondary">Contactar soporte →</a>
+      </div>
+      <div class="card">
+        <h3>Política de privacidad</h3>
+        <p>Cómo protegemos los datos tuyos y los de tu mascota.</p>
+        <a href="privacy.html" class="btn-secondary">Ver política →</a>
+      </div>
+      <div class="card">
+        <h3>Términos de uso</h3>
+        <p>Las condiciones para usar Bupo! y su comunidad.</p>
+        <a href="terms.html" class="btn-secondary">Ver términos →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Bupo!. Hecho por y para amantes de las mascotas.</p>
+</footer>
+
+</body>
+</html>
