@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Términos de Uso - Bupo!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#132018;
+    --ink-soft:#4B5A52;
+    --green:#22C55E;
+    --green-deep:#15803D;
+    --green-pale:#EAFBF1;
+    --coral:#FF7A59;
+    --white:#FFFFFF;
+    --line:#DCEEE2;
+    --mono:'IBM Plex Mono', monospace;
+    --display:'Fredoka', sans-serif;
+    --body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--body); color:var(--ink); background:var(--white); -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+
+  nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav-container{max-width:1160px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:700; font-size:1.25rem;}
+  .logo-mark{width:32px; height:32px; border-radius:10px; background:var(--green); display:flex; align-items:center; justify-content:center; font-size:1.05rem;}
+  .nav-links{display:flex; align-items:center; gap:28px;}
+  .nav-links a{font-size:.92rem; color:var(--ink-soft); font-weight:500; transition:color .15s ease;}
+  .nav-links a:hover{color:var(--green-deep);}
+  .nav-links a.active{color:var(--green-deep);}
+  .nav-cta{background:var(--ink); color:var(--white) !important; padding:9px 18px; border-radius:100px; font-size:.85rem !important; font-weight:600 !important;}
+  .nav-cta:hover{background:var(--green-deep) !important;}
+
+  .legal-wrapper{max-width:720px; margin:0 auto; padding:64px 24px 100px;}
+  .legal-header{margin-bottom:40px;}
+  .legal-header .kicker{font-family:var(--mono); font-size:.75rem; letter-spacing:.06em; color:var(--green-deep); text-transform:uppercase; display:block; margin-bottom:14px;}
+  .legal-header h1{font-family:var(--display); font-weight:700; font-size:clamp(2.1rem,4vw,2.8rem); line-height:1.1;}
+  .effective-date{color:var(--ink-soft); font-size:1rem; margin-top:10px; font-family:var(--mono);}
+  .header-line{height:3px; width:56px; background:var(--green); border-radius:100px; margin-top:22px;}
+
+  .intro-text{color:var(--ink-soft); font-size:1.02rem; line-height:1.65; margin-bottom:6px;}
+
+  .legal-section{margin-top:44px;}
+  .legal-section h2{font-family:var(--display); font-weight:600; font-size:1.25rem; margin-bottom:16px; display:flex; align-items:center; gap:10px;}
+  .legal-section h2 .num{font-family:var(--mono); font-size:.78rem; color:var(--green-deep); background:var(--green-pale); border:1px solid var(--line); width:26px; height:26px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .info-card{background:var(--green-pale); border:1px solid var(--line); border-radius:16px; padding:22px 24px;}
+  .info-card p{color:var(--ink-soft); font-size:.95rem; line-height:1.65;}
+  .info-card p + p{margin-top:12px;}
+  .info-card ul{margin-top:14px; padding-left:20px; display:flex; flex-direction:column; gap:8px;}
+  .info-card li{color:var(--ink-soft); font-size:.92rem; line-height:1.5;}
+  .info-card li::marker{color:var(--green-deep);}
+  .info-card strong{color:var(--ink); font-weight:600;}
+
+  .contact-box{display:flex; align-items:center; justify-content:space-between; background:var(--ink); color:var(--white); border-radius:14px; padding:18px 22px; font-weight:600; font-size:.95rem; transition:background .15s ease, transform .15s ease;}
+  .contact-box span{font-family:var(--mono); font-weight:400; font-size:.85rem; color:var(--green);}
+  .contact-box:hover{background:var(--green-deep); transform:translateY(-2px);}
+
+  .highlight-box{font-family:var(--display); font-weight:600; font-size:1.02rem; color:var(--green-deep); background:var(--white); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-top:14px;}
+
+  .eula-link{display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:.88rem; font-weight:600; color:var(--green-deep); border-bottom:1px solid var(--green-deep); padding-bottom:2px;}
+  .eula-link:hover{color:var(--ink);}
+
+  footer{padding:26px 24px; text-align:center; font-size:.8rem; color:var(--ink-soft); border-top:1px solid var(--line);}
+
+  @media (max-width:880px){
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo"><span class="logo-mark">🐾</span>Bupo!</a>
+    <div class="nav-links">
+      <a href="support.html">Soporte</a>
+      <a href="privacy.html">Privacidad</a>
+      <a href="terms.html" class="active">Términos</a>
+      <a href="index.html" class="nav-cta">Sumate ahora</a>
+    </div>
+  </div>
+</nav>
+
+<main class="legal-wrapper">
+
+  <div class="legal-header">
+    <span class="kicker">Legal</span>
+    <h1>Términos de Uso</h1>
+    <p class="effective-date">Vigente desde: 22 de julio de 2026</p>
+    <div class="header-line"></div>
+  </div>
+
+  <p class="intro-text">Estos Términos de Uso regulan el acceso y uso de Bupo!, la comunidad para conectar mascotas y sus dueños. Al usar la app, aceptás quedar sujeto a estos términos.</p>
+
+  <section class="legal-section">
+    <h2><span class="num">1</span>Licencia</h2>
+    <div class="info-card">
+      <p>Bupo! te otorga una licencia limitada, no exclusiva, intransferible y revocable para usar la app con fines personales y no comerciales, de acuerdo con estos Términos y con el EULA estándar de Apple.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">2</span>Cuentas y autenticación</h2>
+    <div class="info-card">
+      <p>Para crear tu cuenta te pedimos nombre, email, fecha de nacimiento y el proveedor de inicio de sesión que elijas. La foto de perfil y el número de teléfono son opcionales.</p>
+      <p>Al registrarte, aceptás:</p>
+      <ul>
+        <li>Proporcionar información veraz y actualizada</li>
+        <li>Mantener tu cuenta y tus credenciales seguras</li>
+        <li>Ser responsable de toda actividad realizada desde tu cuenta</li>
+        <li>Tener al menos 16 años, o contar con la autorización de un adulto responsable</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">3</span>Perfiles de mascotas y búsqueda de pareja</h2>
+    <div class="info-card">
+      <p>Podés crear el perfil de una o varias mascotas con información como especie, raza, sexo, fecha de nacimiento, peso y fotografías. Esta información se usa para mostrar tu mascota a otros usuarios y sugerir posibles parejas compatibles.</p>
+      <p>Sos responsable de que los datos de tus mascotas sean reales y estén actualizados, y de gestionar de forma responsable cualquier contacto o encuentro que surja a partir de una posible cruza. Bupo! facilita el contacto entre usuarios, pero no interviene ni se responsabiliza por lo que ocurra fuera de la app.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">4</span>Alertas de mascotas perdidas</h2>
+    <div class="info-card">
+      <p>Podés publicar una alerta cuando tu mascota se pierda, incluyendo su ubicación aproximada para ayudar a la comunidad a encontrarla. Bupo! difunde estas alertas dentro de la app, pero no garantiza que la mascota sea encontrada ni se responsabiliza por la información que otros usuarios aporten en respuesta a una alerta.</p>
+      <p>Las alertas deben ser reales. Publicar alertas falsas o engañosas está prohibido.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">5</span>Servicios ofrecidos por otros usuarios</h2>
+    <div class="info-card">
+      <p>Cualquier usuario puede publicar servicios para mascotas (veterinaria, paseo, cuidado, adiestramiento, peluquería, entre otros), incluyendo tipo de servicio, descripción, precio, disponibilidad, ubicación y fotos.</p>
+      <p>Bupo! actúa únicamente como plataforma de contacto entre quien ofrece y quien busca un servicio. No verificamos las credenciales profesionales de quienes publican servicios y no somos responsables por la calidad, seguridad o resultado de los servicios contratados. Te recomendamos verificar referencias y reseñas antes de contratar.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">6</span>Reseñas</h2>
+    <div class="info-card">
+      <p>Las reseñas que dejás sobre un servicio deben reflejar tu experiencia real. No está permitido publicar reseñas falsas, difamatorias o hechas en nombre de otra persona.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">7</span>Uso aceptable</h2>
+    <div class="info-card">
+      <ul>
+        <li>No podés usar la app con fines ilegales o para promover el maltrato animal</li>
+        <li>No podés publicar información falsa sobre tu identidad, tus mascotas o tus servicios</li>
+        <li>No podés copiar, modificar o realizar ingeniería inversa de la app</li>
+        <li>No podés interferir con el funcionamiento normal de Bupo! ni de su comunidad</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">8</span>Disponibilidad del servicio</h2>
+    <div class="info-card">
+      <p>Buscamos que Bupo! esté disponible en todo momento, pero no garantizamos un funcionamiento ininterrumpido o libre de errores.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">9</span>Exención de garantías</h2>
+    <div class="info-card">
+      <p>La app se ofrece "tal cual" y "según disponibilidad", sin garantías de ningún tipo, incluyendo la exactitud de perfiles, alertas o servicios publicados por otros usuarios.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">10</span>Limitación de responsabilidad</h2>
+    <div class="info-card">
+      <p>En la máxima medida permitida por la ley, Bupo! no será responsable por daños indirectos, incidentales o consecuentes derivados del uso de la app, incluyendo encuentros entre mascotas, cruzas, contrataciones de servicios o el resultado de una búsqueda de mascota perdida.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">11</span>Terminación</h2>
+    <div class="info-card">
+      <p>Podemos suspender o cancelar tu acceso a la app si violás estos Términos, incluyendo la publicación de contenido falso, ofensivo o que promueva el maltrato animal.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">12</span>Cambios a estos Términos</h2>
+    <div class="info-card">
+      <p>Podemos actualizar estos Términos de vez en cuando. El uso continuado de la app implica la aceptación de los Términos actualizados.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">13</span>Contacto</h2>
+    <a href="mailto:soporte@bupoapp.com" class="contact-box">
+      Contactar soporte
+      <span>soporte@bupoapp.com</span>
+    </a>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">14</span>EULA estándar de Apple</h2>
+    <div class="info-card">
+      <p>Estos Términos complementan el Acuerdo de Licencia de Usuario Final estándar de Apple (EULA) para aplicaciones con licencia.</p>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" class="eula-link">Ver EULA estándar de Apple →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Bupo!. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
