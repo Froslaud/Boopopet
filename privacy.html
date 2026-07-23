@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad - Bupo!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#132018;
+    --ink-soft:#4B5A52;
+    --green:#22C55E;
+    --green-deep:#15803D;
+    --green-pale:#EAFBF1;
+    --coral:#FF7A59;
+    --white:#FFFFFF;
+    --line:#DCEEE2;
+    --mono:'IBM Plex Mono', monospace;
+    --display:'Fredoka', sans-serif;
+    --body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--body); color:var(--ink); background:var(--white); -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+
+  nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav-container{max-width:1160px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:700; font-size:1.25rem;}
+  .logo-mark{width:32px; height:32px; border-radius:10px; background:var(--green); display:flex; align-items:center; justify-content:center; font-size:1.05rem;}
+  .nav-links{display:flex; align-items:center; gap:28px;}
+  .nav-links a{font-size:.92rem; color:var(--ink-soft); font-weight:500; transition:color .15s ease;}
+  .nav-links a:hover{color:var(--green-deep);}
+  .nav-links a.active{color:var(--green-deep);}
+  .nav-cta{background:var(--ink); color:var(--white) !important; padding:9px 18px; border-radius:100px; font-size:.85rem !important; font-weight:600 !important;}
+  .nav-cta:hover{background:var(--green-deep) !important;}
+
+  .legal-wrapper{max-width:720px; margin:0 auto; padding:64px 24px 100px;}
+  .legal-header{margin-bottom:40px;}
+  .legal-header .kicker{font-family:var(--mono); font-size:.75rem; letter-spacing:.06em; color:var(--green-deep); text-transform:uppercase; display:block; margin-bottom:14px;}
+  .legal-header h1{font-family:var(--display); font-weight:700; font-size:clamp(2.1rem,4vw,2.8rem); line-height:1.1;}
+  .effective-date{color:var(--ink-soft); font-size:1rem; margin-top:10px; font-family:var(--mono);}
+  .header-line{height:3px; width:56px; background:var(--green); border-radius:100px; margin-top:22px;}
+
+  .intro-text{color:var(--ink-soft); font-size:1.02rem; line-height:1.65; margin-bottom:6px;}
+
+  .legal-section{margin-top:44px;}
+  .legal-section > h2{font-family:var(--display); font-weight:600; font-size:1.25rem; margin-bottom:16px; display:flex; align-items:center; gap:10px;}
+  .legal-section > h2 .num{font-family:var(--mono); font-size:.78rem; color:var(--green-deep); background:var(--green-pale); border:1px solid var(--line); width:26px; height:26px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .legal-section > p.lead{color:var(--ink-soft); font-size:.95rem; margin-bottom:16px;}
+
+  .info-card{background:var(--green-pale); border:1px solid var(--line); border-radius:16px; padding:22px 24px;}
+  .info-card + .info-card{margin-top:14px;}
+  .info-card h3{font-family:var(--display); font-weight:600; font-size:1rem; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .info-card p{color:var(--ink-soft); font-size:.95rem; line-height:1.65;}
+  .info-card p + p{margin-top:12px;}
+  .info-card ul{margin-top:14px; padding-left:20px; display:flex; flex-direction:column; gap:8px;}
+  .info-card li{color:var(--ink-soft); font-size:.92rem; line-height:1.5;}
+  .info-card li::marker{color:var(--green-deep);}
+  .info-card strong{color:var(--ink); font-weight:600;}
+
+  .contact-box{display:flex; align-items:center; justify-content:space-between; background:var(--ink); color:var(--white); border-radius:14px; padding:18px 22px; font-weight:600; font-size:.95rem; transition:background .15s ease, transform .15s ease; margin-top:16px;}
+  .contact-box span{font-family:var(--mono); font-weight:400; font-size:.85rem; color:var(--green);}
+  .contact-box:hover{background:var(--green-deep); transform:translateY(-2px);}
+
+  .highlight-box{font-family:var(--display); font-weight:600; font-size:1.02rem; color:var(--green-deep); background:var(--white); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-top:14px;}
+
+  .eula-link{display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:.88rem; font-weight:600; color:var(--green-deep); border-bottom:1px solid var(--green-deep); padding-bottom:2px;}
+  .eula-link:hover{color:var(--ink);}
+
+  footer{padding:26px 24px; text-align:center; font-size:.8rem; color:var(--ink-soft); border-top:1px solid var(--line);}
+
+  @media (max-width:880px){
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo"><span class="logo-mark">🐾</span>Bupo!</a>
+    <div class="nav-links">
+      <a href="support.html">Soporte</a>
+      <a href="privacy.html" class="active">Privacidad</a>
+      <a href="terms.html">Términos</a>
+      <a href="index.html" class="nav-cta">Sumate ahora</a>
+    </div>
+  </div>
+</nav>
+
+<main class="legal-wrapper">
+
+  <div class="legal-header">
+    <span class="kicker">Legal</span>
+    <h1>Política de Privacidad</h1>
+    <p class="effective-date">Vigente desde: 22 de julio de 2026</p>
+    <div class="header-line"></div>
+  </div>
+
+  <p class="intro-text">En Bupo! ("nosotros") nos comprometemos a proteger tu privacidad y la de tu mascota, y a manejar tus datos de forma segura y transparente.</p>
+  <p class="intro-text">Esta Política de Privacidad explica qué información recopilamos, para qué la usamos y qué derechos tenés sobre ella.</p>
+
+  <section class="legal-section">
+    <h2><span class="num">1</span>Información que recopilamos</h2>
+    <p class="lead">Recopilamos únicamente la información necesaria para brindar las funciones principales de Bupo! y mejorar tu experiencia.</p>
+
+    <div class="info-card">
+      <h3>👤 Información de la cuenta</h3>
+      <p>Para crear y administrar tu perfil, autenticar tu cuenta y facilitar la interacción con otros usuarios, recopilamos:</p>
+      <ul>
+        <li>Nombre</li>
+        <li>Dirección de correo electrónico</li>
+        <li>Fecha de nacimiento</li>
+        <li>Proveedor de inicio de sesión</li>
+        <li>Estado de verificación de la cuenta</li>
+      </ul>
+      <p>De forma opcional, también podés agregar una foto de perfil y un número de teléfono.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>📍 Información de ubicación</h3>
+      <p>Usamos tu ubicación para mostrarte contenido relevante cerca tuyo, ayudarte a encontrar mascotas perdidas y facilitar la búsqueda de servicios en tu zona:</p>
+      <ul>
+        <li>Ciudad, provincia, país y otros datos de ubicación que decidas proporcionar</li>
+        <li>Ubicación aproximada de una mascota perdida, cuando publicás una alerta</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <h3>🐾 Información de las mascotas</h3>
+      <p>Para crear el perfil de cada mascota, encontrar posibles parejas y publicar alertas cuando se pierde, recopilamos:</p>
+      <ul>
+        <li>Nombre, especie, raza y sexo</li>
+        <li>Fecha de nacimiento y peso</li>
+        <li>Fotografías</li>
+        <li>Estado de búsqueda de pareja</li>
+        <li>Información relacionada con reportes de mascotas perdidas</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <h3>💼 Información de servicios</h3>
+      <p>Si publicás un servicio para mascotas (veterinaria, paseo, cuidado, adiestramiento, peluquería, entre otros), recopilamos el tipo de servicio, título y descripción, precio, disponibilidad, ubicación y fotografía, para mostrar y administrar tu publicación dentro de la app.</p>
+      <p>También almacenamos las <strong>reseñas</strong> que otros usuarios dejan sobre los servicios, para ayudar a la comunidad a tomar decisiones informadas.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">2</span>Cómo usamos tu información</h2>
+    <div class="info-card">
+      <ul>
+        <li>Crear y administrar los perfiles tuyos y de tus mascotas</li>
+        <li>Mostrarte posibles parejas compatibles para tu mascota</li>
+        <li>Difundir alertas de mascotas perdidas dentro de la comunidad</li>
+        <li>Mostrarte servicios y contenido relevante cerca de tu ubicación</li>
+        <li>Permitirte publicar y administrar tus propios servicios</li>
+        <li>Mejorar el funcionamiento y la experiencia general de la app</li>
+      </ul>
+      <p class="highlight-box">No vendemos tu información personal ni la de tu mascota a terceros.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">3</span>Rastreo y publicidad</h2>
+    <div class="info-card">
+      <ul>
+        <li>No realizamos rastreo sin tu consentimiento explícito</li>
+        <li>No usamos tus datos personales con fines publicitarios</li>
+        <li>No compartimos perfiles de comportamiento con terceros</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">4</span>Almacenamiento y seguridad</h2>
+    <div class="info-card">
+      <p>Tu información y la de tu mascota se almacenan en infraestructura en la nube segura, necesaria para sincronizar tus perfiles, alertas y servicios entre dispositivos.</p>
+      <p>Aplicamos medidas de seguridad estándar de la industria para proteger tu información. Sin embargo, ningún sistema puede garantizar seguridad absoluta.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">5</span>Compartición de datos</h2>
+    <div class="info-card">
+      <p>No compartimos tu información personal con terceros, excepto en los siguientes casos:</p>
+      <ul>
+        <li>Cuando lo requiera la ley o una normativa aplicable</li>
+        <li>Para cumplir con obligaciones legales o solicitudes válidas de autoridades</li>
+        <li>La información que elegís hacer pública dentro de la app, como el perfil de tu mascota, tus alertas o tus servicios, es visible para el resto de la comunidad</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">6</span>Tus derechos</h2>
+    <div class="info-card">
+      <p>Tenés derecho a:</p>
+      <ul>
+        <li>Acceder a tu información personal y a la de tus mascotas</li>
+        <li>Corregir datos inexactos</li>
+        <li>Eliminar tu información, tus mascotas o tus servicios publicados</li>
+        <li>Solicitar información sobre cómo procesamos tus datos</li>
+      </ul>
+      <p>La mayoría de estas acciones podés hacerlas vos mismo desde la app. Para lo demás, escribinos:</p>
+      <a href="mailto:soporte@bupoapp.com" class="contact-box">
+        Solicitar acceso o eliminación
+        <span>soporte@bupoapp.com</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">7</span>Retención de datos</h2>
+    <div class="info-card">
+      <p>Conservamos tu información, la de tus mascotas y tus servicios solo durante el tiempo necesario para brindarte las funciones de la app.</p>
+      <p>Podés solicitar la eliminación de tus datos en cualquier momento.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">8</span>Privacidad de menores</h2>
+    <div class="info-card">
+      <p>Bupo! no está dirigida a menores de 16 años. No recopilamos intencionalmente información personal de menores de esa edad.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">9</span>Cambios a esta Política</h2>
+    <div class="info-card">
+      <p>Podemos actualizar esta Política de Privacidad de vez en cuando. Los cambios se publicarán dentro de la app y entrarán en vigencia desde su publicación.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">10</span>Contacto</h2>
+    <a href="mailto:soporte@bupoapp.com" class="contact-box">
+      Contactar soporte
+      <span>soporte@bupoapp.com</span>
+    </a>
+  </section>
+
+  <section class="legal-section">
+    <h2><span class="num">11</span>Términos de uso</h2>
+    <div class="info-card">
+      <p>El uso de esta app se rige por los Términos de Uso de Bupo!, que definen las reglas y condiciones para usar la aplicación.</p>
+      <a href="terms.html" class="eula-link">Ver Términos de Uso de Bupo! →</a>
+
+      <p style="margin-top:15px;">Estos términos complementan el Acuerdo de Licencia de Usuario Final estándar de Apple (EULA).</p>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" class="eula-link">Ver EULA estándar de Apple →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Bupo!. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
