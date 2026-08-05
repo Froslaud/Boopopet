@@ -1,34 +1,520 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soporte - Bupo!</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --ink:#132018;
+    --ink-soft:#4B5A52;
+    --green:#22C55E;
+    --green-deep:#15803D;
+    --green-pale:#EAFBF1;
+    --white:#FFFFFF;
+    --line:#DCEEE2;
+
+    --display:'Fredoka',sans-serif;
+    --body:'Inter',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:var(--body);
+    background:var(--white);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* NAV */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav-container{
+    max-width:1160px;
+    margin:auto;
+    padding:16px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--display);
+    font-weight:700;
+    font-size:1.25rem;
+}
+
+.logo-mark{
+    width:34px;
+    height:34px;
+    background:var(--green);
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:var(--ink-soft);
+    font-size:.92rem;
+    font-weight:500;
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    color:var(--green-deep);
+}
+
+.nav-links .active{
+    color:var(--green-deep);
+}
+
+.nav-cta{
+    background:var(--ink);
+    color:white!important;
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:.85rem!important;
+    font-weight:600!important;
+}
+
+.nav-cta:hover{
+    background:var(--green-deep);
+}
+
+/* CONTENT */
+
+.legal-wrapper{
+    max-width:760px;
+    margin:auto;
+    padding:70px 24px 100px;
+}
+
+.kicker{
+    font-family:var(--mono);
+    text-transform:uppercase;
+    color:var(--green-deep);
+    font-size:.75rem;
+    letter-spacing:.08em;
+}
+
+h1{
+    font-family:var(--display);
+    font-size:clamp(2.2rem,4vw,3rem);
+    margin-top:12px;
+}
+
+.effective-date{
+    margin-top:12px;
+    color:var(--ink-soft);
+}
+
+.header-line{
+    margin-top:22px;
+    width:60px;
+    height:4px;
+    background:var(--green);
+    border-radius:999px;
+}
+
+.intro-text{
+    margin-top:28px;
+    color:var(--ink-soft);
+    line-height:1.7;
+}
+
+.legal-section{
+    margin-top:48px;
+}
+
+.legal-section h2{
+    font-family:var(--display);
+    margin-bottom:16px;
+    font-size:1.3rem;
+}
+
+.info-card{
+    background:var(--green-pale);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:24px;
+}
+
+.info-card p{
+    color:var(--ink-soft);
+    line-height:1.7;
+}
+
+.info-card p+p{
+    margin-top:16px;
+}
+
+.info-card strong{
+    color:var(--ink);
+}
+
+.info-card ul{
+    margin-top:18px;
+    padding-left:20px;
+}
+
+.info-card li{
+    margin-bottom:10px;
+    color:var(--ink-soft);
+    line-height:1.6;
+}
+
+.info-card li::marker{
+    color:var(--green-deep);
+}
+
+.contact-box{
+    margin-top:16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--ink);
+    color:white;
+    padding:18px 22px;
+    border-radius:14px;
+    transition:.2s;
+    font-weight:600;
+}
+
+.contact-box span{
+    color:var(--green);
+    font-family:var(--mono);
+    font-size:.82rem;
+    font-weight:400;
+}
+
+.contact-box:hover{
+    background:var(--green-deep);
+    transform:translateY(-2px);
+}
+
+.tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+.tag{
+    padding:6px 12px;
+    border-radius:999px;
+    background:white;
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    font-family:var(--mono);
+    font-size:.73rem;
+}
+
+.highlight-box{
+    text-align:center;
+    font-family:var(--display);
+    color:var(--green-deep);
+    font-size:1.2rem;
+}
+
+footer{
+    border-top:1px solid var(--line);
+    padding:28px;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:.82rem;
+}
+
+@media(max-width:880px){
+
+.nav-links{
+display:none;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="nav-container">
+
+<a href="index.html" class="logo">
+<span class="logo-mark">🐾</span>
+Bupo!
+</a>
+
+<div class="nav-links">
+
+<a href="support.html" class="active">Soporte</a>
+
+<a href="privacy.html">Privacidad</a>
+
+<a href="terms.html">Términos</a>
+
+<a href="index.html" class="nav-cta">
+Sumate ahora
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<main class="legal-wrapper">
+
+<span class="kicker">
+Ayuda
+</span>
+
+<h1>
+Soporte
+</h1>
+
+<p class="effective-date">
+Estamos para ayudarte a vos y a tu mascota 🐾
+</p>
+
+<div class="header-line"></div>
+
+<p class="intro-text">
+Gracias por formar parte de Bupo!.
+</p>
+
+<p class="intro-text">
+Si tenés dudas, necesitás ayuda con tu cuenta, encontraste un error en la aplicación, querés reportar contenido o necesitás asistencia con cualquiera de las funciones de Bupo!, escribinos cuando quieras.
+</p>
+
 <section class="legal-section">
-  <h2>Eliminación de cuenta</h2>
-  <div class="info-card">
 
-    <p>En Bupo! tenés control total sobre tu información. Podés editar o eliminar tus mascotas, publicaciones, servicios y demás contenido directamente desde la aplicación.</p>
+<h2>
+Nuestro compromiso
+</h2>
 
-    <p>Si deseás eliminar tu cuenta de forma permanente, ingresá a:</p>
+<div class="info-card">
 
-    <div class="tag-row" style="margin-top:12px;">
-      <span class="tag">Perfil</span>
-      <span class="tag">Configuración</span>
-      <span class="tag">Eliminar cuenta</span>
-    </div>
+<p>
+Trabajamos todos los días para ofrecer una aplicación segura, confiable y enfocada en el bienestar de las mascotas.
+</p>
 
-    <p style="margin-top:18px;">
-      Al confirmar la eliminación, tu cuenta se elimina de forma permanente junto con toda la información asociada, incluyendo:
-    </p>
+<p>
+Nuestro objetivo es ayudarte a encontrar la mejor experiencia posible dentro de la comunidad Bupo!, brindando respuestas claras y soluciones en el menor tiempo posible.
+</p>
 
-    <ul>
-      <li>Tu perfil de usuario.</li>
-      <li>Los perfiles de todas tus mascotas.</li>
-      <li>Publicaciones de adopción.</li>
-      <li>Publicaciones de mascotas perdidas.</li>
-      <li>Servicios publicados.</li>
-      <li>Reseñas y calificaciones realizadas.</li>
-      <li>Fotografías y demás contenido asociado a tu cuenta.</li>
-    </ul>
+</div>
 
-    <p style="margin-top:18px;">
-      Una vez completado el proceso, la información personal es eliminada de nuestros sistemas y la acción <strong>no puede deshacerse</strong>, salvo aquella información que deba conservarse temporalmente por obligación legal cuando corresponda.
-    </p>
-
-  </div>
 </section>
+
+<section class="legal-section">
+
+<h2>
+Contacto
+</h2>
+
+<a href="mailto:soporte@bupo.app" class="contact-box">
+
+Escribinos por email
+
+<span>
+soporte@bupo.app
+</span>
+
+</a>
+
+</section>
+
+<section class="legal-section">
+
+<h2>
+Tiempo de respuesta
+</h2>
+
+<div class="info-card">
+
+<p>
+Normalmente respondemos todas las consultas dentro de las <strong>24 a 48 horas hábiles</strong>.
+</p>
+
+</div>
+
+</section>
+
+<section class="legal-section">
+
+<h2>
+Eliminación de cuenta
+</h2>
+
+<div class="info-card">
+
+<p>
+En Bupo! tenés control total sobre tu información. Podés editar o eliminar tus mascotas, publicaciones, servicios y demás contenido directamente desde la aplicación.
+</p>
+
+<p>
+Si deseás eliminar tu cuenta de forma permanente, ingresá a:
+</p>
+
+<div class="tag-row">
+
+<span class="tag">
+Perfil
+</span>
+
+<span class="tag">
+Configuración
+</span>
+
+<span class="tag">
+Eliminar cuenta
+</span>
+
+</div>
+
+<p style="margin-top:20px;">
+Al confirmar la eliminación, tu cuenta y toda la información asociada se eliminan de forma permanente, incluyendo:
+</p>
+
+<ul>
+
+<li>Tu perfil de usuario.</li>
+
+<li>Todas tus mascotas.</li>
+
+<li>Historial de salud de las mascotas.</li>
+
+<li>Publicaciones de adopción.</li>
+
+<li>Publicaciones de mascotas perdidas.</li>
+
+<li>Servicios publicados.</li>
+
+<li>Reseñas y calificaciones realizadas.</li>
+
+<li>Fotografías y demás contenido asociado.</li>
+
+</ul>
+
+<p style="margin-top:18px;">
+Una vez completado el proceso, la información personal es eliminada de nuestros sistemas y la acción <strong>no puede deshacerse</strong>, salvo aquella información cuya conservación sea requerida por obligaciones legales aplicables.
+</p>
+
+</div>
+
+</section>
+
+<section class="legal-section">
+
+<h2>
+Antes de contactar soporte
+</h2>
+
+<div class="info-card">
+
+<p>
+Para poder ayudarte más rápido, incluí la siguiente información:
+</p>
+
+<ul>
+
+<li>Modelo del dispositivo.</li>
+
+<li>Versión del sistema operativo.</li>
+
+<li>Versión de Bupo! instalada.</li>
+
+<li>Descripción detallada del problema.</li>
+
+<li>Capturas de pantalla o grabaciones (si es posible).</li>
+
+</ul>
+
+<div class="tag-row">
+
+<span class="tag">Cuenta</span>
+
+<span class="tag">Mascotas</span>
+
+<span class="tag">Adopciones</span>
+
+<span class="tag">Mascota perdida</span>
+
+<span class="tag">Servicios</span>
+
+<span class="tag">Tienda</span>
+
+<span class="tag">Perfil</span>
+
+<span class="tag">Otro</span>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="legal-section">
+
+<div class="info-card">
+
+<p class="highlight-box">
+Gracias por ayudarnos a construir una comunidad donde las mascotas son lo más importante. 🐾💚
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+© 2026 Bupo!. Todos los derechos reservados.
+
+</footer>
+
+</body>
+</html>
+```
